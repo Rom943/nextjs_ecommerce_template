@@ -20,6 +20,7 @@ model Admin {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  posts     Post[]
 }
 
 model User {
@@ -99,8 +100,9 @@ model Image {
   category   ProductCategory? @relation(fields: [categoryId], references: [id])
   userId     Int?             @unique
   user       User?            @relation(fields: [userId], references: [id])
-  gallerylId  Int?             @unique
-  gallery    ImageGallery?   @relation(fields: [gallerylId], references: [id])
+  gallerylId Int?             @unique
+  gallery    ImageGallery?    @relation(fields: [gallerylId], references: [id])
+  post       Post[]           @relation("PostImages")
   createdAt  DateTime         @default(now())
 }
 
@@ -140,4 +142,48 @@ model ProductList {
   updatedAt   DateTime  @updatedAt
 }
 
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  imageId   Int?
+  images    Image[]  @relation("PostImages")
+  authorId  Int?
+  author    Admin?   @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
+model Template {
+  id        Int      @id @default(autoincrement())
+  name      String
+  colors    Json?
+  fonts     Json?
+  layout    Templates
+  content   Json?
+  published Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Templates{
+  SPORTS
+  FASHION
+  TECHNOLOGY
+  FOOD
+  TRAVEL
+  HEALTH
+  EDUCATION
+  ENTERTAINMENT
+  BUSINESS
+  LIFESTYLE
+  FINANCE
+  REAL_ESTATE
+  AUTOMOTIVE
+  BEAUTY
+  FITNESS
+  GAMING
+  MUSIC
+  ART
+  PHOTOGRAPHY
+}
