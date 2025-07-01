@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url= env("DATABASE_URL")
 }
 
 model Admin {
@@ -68,6 +68,7 @@ model Product {
   rating             Float?            @default(0)
   categories         ProductCategory[] @relation("ProductCategories")
   stock              Int               @default(0)
+  productAttributes  Json?
   reviews            ProductReview[]
   orders             Order[]           @relation("OrderProducts")
   carts              Cart[]            @relation("CartProducts")
@@ -75,6 +76,9 @@ model Product {
   updatedAt          DateTime          @updatedAt
 
 }
+
+
+
 
 model ProductCategory {
   id          Int       @id @default(autoincrement())
@@ -142,8 +146,20 @@ model Post {
   mainImageId Int?
   authorId    Int?
   author      Admin?         @relation(fields: [authorId], references: [id])
+  categories  PostCategory[] @relation("PostCategories")
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
+}
+
+model PostCategory {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  thumbnailImageUrl  String?
+  HeroImageUrl String?
+  posts       Post[]    @relation("PostCategories")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Website {
