@@ -23,8 +23,7 @@ model Admin {
   phone     String?
   address   String?
   age       Int?
-  avatarId  Int?
-  avatar    Image?   @relation("AdminAvatar", fields: [avatarId], references: [id])
+  avatarUrl String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts     Post[]
@@ -39,14 +38,14 @@ model User {
   phone     String?
   address   String?
   age       Int?
-  avatarId  Int?
-  avatar    Image?          @relation("UserAvatar", fields: [avatarId], references: [id])
+  avatarUrl String?
   reviews   ProductReview[]
   visits    Visit[]
   orders    Order[]
   cart      Cart?
   createdAt DateTime        @default(now())
   updatedAt DateTime        @updatedAt
+  imageId   Int?
 }
 
 model Visit {
@@ -59,30 +58,30 @@ model Visit {
 }
 
 model Product {
-  id             Int               @id @default(autoincrement())
-  name           String
-  description    String?
-  price          Float
-  discount       Float?            @default(0)
-  mainImageId    Int?
-  mainImage      Image?            @relation("ProductMainImage", fields: [mainImageId], references: [id])
-  productGallery ImageGallery[]    @relation("ProductGallery")
-  rating         Float?            @default(0)
-  categories     ProductCategory[] @relation("ProductCategories")
-  stock          Int               @default(0)
-  reviews        ProductReview[]
-  orders         Order[]           @relation("OrderProducts")
-  carts          Cart[]            @relation("CartProducts")
-  createdAt      DateTime          @default(now())
-  updatedAt      DateTime          @updatedAt
+  id                 Int               @id @default(autoincrement())
+  name               String
+  description        String?
+  price              Float
+  discount           Float?            @default(0)
+  mainImageUrl       String?
+  productGalleryUrls Json?
+  rating             Float?            @default(0)
+  categories         ProductCategory[] @relation("ProductCategories")
+  stock              Int               @default(0)
+  reviews            ProductReview[]
+  orders             Order[]           @relation("OrderProducts")
+  carts              Cart[]            @relation("CartProducts")
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
 }
 
 model ProductCategory {
   id          Int       @id @default(autoincrement())
   name        String    @unique
   description String?
-  mainImageId Int?
-  mainImage   Image?    @relation("ProductCategoryImage", fields: [mainImageId], references: [id])
+  thumbnailImageUrl  String?
+  HeroImageUrl String?
   products    Product[] @relation("ProductCategories")
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
@@ -106,23 +105,9 @@ model Image {
   altText          String?
   width            Int?
   height           Int?
-  imageGallery     ImageGallery[]    @relation("ImageGalleryImages")
-  productCategory  ProductCategory[] @relation("ProductCategoryImage")
-  adminAvatar      Admin[]           @relation("AdminAvatar")
-  userAvatar       User[]            @relation("UserAvatar")
-  productMainImage Product[]         @relation("ProductMainImage")
-  postMainImage    Post[]            @relation("PostMainImage")
+  createdAt        DateTime          @default(now())
 }
 
-model ImageGallery {
-  id             Int       @id @default(autoincrement())
-  images         Image[]   @relation("ImageGalleryImages")
-  altText        String?
-  productGallery Product[] @relation("ProductGallery")
-  postImages     Post[]    @relation("PostImages")
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-}
 
 model Order {
   id              Int       @id @default(autoincrement())
@@ -155,36 +140,24 @@ model Post {
   title       String
   content     String?
   mainImageId Int?
-  mainImage   Image?         @relation("PostMainImage", fields: [mainImageId], references: [id])
-  postImages  ImageGallery[] @relation("PostImages")
   authorId    Int?
   author      Admin?         @relation(fields: [authorId], references: [id])
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
 }
 
-model Template {
-  id        Int       @id @default(autoincrement())
-  name      String
-  layout    Templates
-  content   Json?
-  styles    Json?
-  published Boolean   @default(false)
-  websiteId Int?
-  website   Website?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-}
-
 model Website {
-  id         Int      @id @default(autoincrement())
-  name       String
-  domain     String   @unique
-  templateId Int      @unique
-  template   Template @relation(fields: [templateId], references: [id])
-  
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id          Int       @id @default(autoincrement())
+  name        String
+  domain      String    @unique
+  template    Templates
+  content     Json?
+  styles      Json?
+  logoUrl     String?
+  faviconUrl  String?
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 enum Templates {
