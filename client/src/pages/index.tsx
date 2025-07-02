@@ -12,10 +12,11 @@ export default function Home() {
       <button onClick={()=>setLayoutName("layoutA")} >layoutA</button>
       <button onClick={()=>setLayoutName("layoutB")}>layoutB</button>
       <div>
-        <Layout />
+        <Layout name={"hello"} />
       </div>
     </div>
     </>
   );
 }
+
 

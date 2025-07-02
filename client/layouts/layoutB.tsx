@@ -1,8 +1,13 @@
 import React from 'react'
 
-const layoutB = () => {
+type LayoutAProps = {
+  name:string
+}
+
+const layoutB:React.FC<LayoutAProps> = ({name}) => {
   return (
-    <div>layoutB</div>
+
+    <div>{name}layoutB</div>
   )
 }
 

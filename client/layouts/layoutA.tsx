@@ -1,9 +1,13 @@
 import React from 'react'
 import Nested from './nested'
 
-const layoutA = () => {
+type LayoutAProps = {
+  name:string
+}
+
+const layoutA: React.FC<LayoutAProps> = ({name}) => {
   return (
-    <div>layoutA
+    <div>{name}
         <Nested/>
     </div>
   )
