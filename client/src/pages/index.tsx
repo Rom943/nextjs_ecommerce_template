@@ -22,6 +22,11 @@ export async function getServerSideProps(){
   return{
     props:{
       layoutName: "art",
+      page:{
+        header:{
+          position: "relative",
+        }
+      }
     }
   }
 }

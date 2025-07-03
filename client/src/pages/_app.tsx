@@ -5,11 +5,11 @@ import Footer from "../../components/footer/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const {layoutName} = pageProps;
+  const {layoutName,page} = pageProps;
 
   return<>
   <div style={{height:"100vh"}}>
-  <Header layoutName={layoutName} pageName="default" />
+  <Header layoutName={layoutName} pageName="default" page={page}/>
   <Component {...pageProps} />
   <Footer layoutName={layoutName} pageName="default"/>
   </div>
