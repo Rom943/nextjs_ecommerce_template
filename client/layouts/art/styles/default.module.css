@@ -1,0 +1,30 @@
+﻿.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.container p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.test{
+  width: 100vw;
+  height: 60px;
+  background-color: #ff0000;
+}
+
+.footer{
+  text-align: center;
+  padding: 1rem;
+  background: #0080ff;
+  margin-top: 2rem;
+  width: 100vw;
+  height: 60px;
+}

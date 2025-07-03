@@ -1,13 +1,16 @@
 import React from 'react'
 import { useDynamicStyles } from '../../hooks/useDynamicStyles'
 
+type HeaderProps = {
+    layoutName: string;
+    pageName: string;
+}
 
-
-const Header = () => {
-    const styles = useDynamicStyles('header')
+const Header:React.FC<HeaderProps> = ({layoutName,pageName}) => {
+    const styles = useDynamicStyles(layoutName, pageName);
 
   return (
-    <div>Header</div>
+    <div className={styles.test}>Header</div>
   )
 }
 
