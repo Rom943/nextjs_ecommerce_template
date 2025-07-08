@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDynamicStyles } from '../../hooks/useDynamicStyles'
+
 
 type FooterProps = {
     layoutName: string;
@@ -8,10 +8,10 @@ type FooterProps = {
 
 const Footer:React.FC<FooterProps> = ({layoutName,pageName}) => {
 
-    const styles = useDynamicStyles(layoutName, pageName);
+
 
   return (
-    <div className={styles.footer}>Footer</div>
+    <div >Footer</div>
   )
 }
 

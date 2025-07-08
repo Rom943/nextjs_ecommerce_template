@@ -27,3 +27,22 @@
   width: 100vw;
   height: 60px;
 }
+
+.navMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: row;
+  gap:5px;
+}
+
+.subMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: row;
+  gap:5px;
+  width: 100vw;
+}

@@ -1,0 +1,17 @@
+.search_bar_icon_container{
+    position:relative;
+    cursor: pointer;
+}
+
+.search_bar_container{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100vw;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #b1ffbb;
+}

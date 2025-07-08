@@ -1,0 +1,24 @@
+.nav_menu_container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap:10px;
+position: relative;
+}
+
+.sub_menu_container{
+width: 100vw;
+justify-content: center;
+align-items: center;
+position: absolute;
+display:flex;
+top:60px;
+background-color: green;
+gap: 30px;
+padding: 20px;
+}
+
+.nav_menu_item{
+    cursor: pointer;
+}

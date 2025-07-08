@@ -1,0 +1,33 @@
+.nav_menu_icon_container{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_menu_container{
+    display: flex;
+    flex-direction:column;
+    align-items: end;
+    padding-right: 10px;
+    padding-top: 10px;
+    gap:10px;
+    position: absolute;
+    right:0;
+    top:60px;
+    background-color: #fffeb1;
+    width:80vw;
+    height: 100vh;
+}
+
+.cancel_button{
+    width: 30px;
+    height: 30px;
+    color: black;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

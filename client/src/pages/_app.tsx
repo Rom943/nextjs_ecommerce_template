@@ -5,13 +5,13 @@ import Footer from "../../components/footer/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const {layoutName,page} = pageProps;
+  const {defualtLayout,page} = pageProps;
 
   return<>
   <div style={{height:"100vh"}}>
-  <Header layoutName={layoutName} pageName="default" page={page}/>
+  <Header defualtLayout={defualtLayout}  header={page.header} />
   <Component {...pageProps} />
-  <Footer layoutName={layoutName} pageName="default"/>
+  <Footer layoutName={defualtLayout} pageName={page} />
   </div>
   </> ;
 }
