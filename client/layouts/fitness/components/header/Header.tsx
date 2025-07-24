@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({header,defualtLayout}) => {
   return (
     <div
       className={styles.header_container}
-      style={{ position: header.position }}
+      style={{ position: header.position, backgroundColor: header.backgroundColor || "" }}
     >
         <SiteLogo logoUrl={header.siteLogo.logoUrl}/>
         {screenWidth > 800 &&

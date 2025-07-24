@@ -79,7 +79,7 @@ model Product {
 model ProductCategory {
   id                Int       @id @default(autoincrement())
   name              String    @unique
-  subCategories    Json?
+  subCategories     Json?
   description       String?
   thumbnailImageUrl String?
   HeroImageUrl      String?
@@ -106,6 +106,16 @@ model Image {
   altText   String?
   width     Int?
   height    Int?
+  createdAt DateTime @default(now())
+}
+
+model Video {
+  id        Int      @id @default(autoincrement())
+  url       String
+  title     String?
+  description String?
+  thumbnailUrl String?
+  duration  Int?     // Duration in seconds
   createdAt DateTime @default(now())
 }
 

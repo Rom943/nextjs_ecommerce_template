@@ -14,6 +14,9 @@ export type NavLinks ={
 export type NavMenuProps = {
     defualtLayout: string;
     navMenu:{
+    direction?: "ltr" | "rtl"; // Optional direction for the nav menu, default is "ltr"
+    fontColor?: string; // Optional font color for the nav menu
+    subMenuBackgroundColor?: string; // Optional color for the sub-menu links
     navLinks: NavLinks[];
     customLayout?: string;
     }
@@ -45,7 +48,7 @@ console.log("screenWidth",screenWidth);
 
 const NavMenuLayout = require(`../../layouts/${navMenu.customLayout?navMenu.customLayout:defualtLayout}/components/${screenWidth>800?'nav_menu/NavMenu.tsx':'nav_menu_mobile/NavMenuMobile.tsx'}`).default;
 
-return <NavMenuLayout links={navMenu.navLinks} />
+return <NavMenuLayout links={navMenu.navLinks} direction ={navMenu.direction} fontColor />
 
 }
 export default NavMenu

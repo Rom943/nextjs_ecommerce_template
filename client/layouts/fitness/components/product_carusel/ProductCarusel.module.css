@@ -1,0 +1,225 @@
+.productCarousel {
+  width: 100%;
+  padding: 40px 16px;
+  position: relative;
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+}
+
+.carouselTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  
+}
+
+.navigationControls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks to pass through to products */
+  z-index: 5;
+}
+
+.navButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: auto; /* Re-enable pointer events for buttons */
+  z-index: 10;
+}
+
+.navButton_left {
+  left: 20px;
+}
+
+.navButton_right {
+  right: 20px;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.productsContainer {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.productsContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.productCard {
+  flex: 0 0 auto;
+  width: 350px;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  direction: rtl;
+}
+
+@media (max-width: 768px) {
+  .productCard {
+    width: 280px;
+  };
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  height: 300px;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ff5a5f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.productInfo {
+  padding: 16px;
+}
+
+.productTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.productPrice {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.discountedPrice {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #888;
+}
+
+.attributesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: black;
+}
+
+.attributeBox {
+  padding: 4px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.attributeLabel {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.attributeValue {
+  color: #555;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.viewButton {
+  flex: 1;
+  padding: 8px 0;
+  border: 1px solid #111;
+  background: transparent;
+  color: #111;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.viewButton:hover {
+  background-color: #f0f0f0;
+}
+
+.cartButton {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  background-color: #111;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cartButton:hover {
+  background-color: #333;
+}

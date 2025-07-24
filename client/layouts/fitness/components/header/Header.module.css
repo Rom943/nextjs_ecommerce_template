@@ -6,6 +6,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: #ffb1b1;
+    z-index: 1000;
 }
 
 .utility_container{

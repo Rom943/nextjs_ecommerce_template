@@ -1,0 +1,149 @@
+.heroCarousel {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  z-index: 1;
+  direction: rtl;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slideContent {
+  padding: 0 5%;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideContent h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .slideContent h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.slideContent p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-align: start;
+}
+
+.shopButton {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shopButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.play_control {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+  text-align: center;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  z-index: 5;
+  width: 100%;
+  
+}
+
+.controlButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-align: center;
+}
+
+.controlButton:hover {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.5);
+}
+
+.controlButton_left{
+position: absolute;
+left:20px;
+}
+
+.controlButton_right{
+position: absolute;
+right:20px;
+}
+
+

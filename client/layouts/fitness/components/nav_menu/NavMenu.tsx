@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link';
 import styles from './NavMenu.module.css';
 
-type LinkType = {
+export type LinkType = {
     link:string;
     title:string;
     sub?:LinkType[];
@@ -15,9 +15,12 @@ export type NavLinks ={
 
 export type NavMenuProps = {
     links: NavLinks[];
+    direction?: "ltr" | "rtl"; // Optional direction for the nav menu, default is "ltr"
+    fontColor?: string; // Optional font color for the nav menu
+    subMenuColor?: string; // Optional color for the sub-menu links
 }
 
-const NavMenu:React.FC<NavMenuProps> = ({links}) => {
+const NavMenu:React.FC<NavMenuProps> = ({links,direction}) => {
     const [mainHoverd,setMainHoverd] = useState("");
 
     const SubLinks =()=>{
@@ -46,8 +49,8 @@ const NavMenu:React.FC<NavMenuProps> = ({links}) => {
     <>
       <nav className={styles.nav_menu_container}>
         {links.map((link, index) => (
-          <div key={index} onMouseEnter={() => setMainHoverd(link.main.title)} >
-            {link.main.title}
+          <div key={index} className={styles.nav_menu_header} onMouseEnter={() => setMainHoverd(link.main.title)} >
+            {link.main.title} {link.sub?"▼":""}
             </div>
             ))}
             
